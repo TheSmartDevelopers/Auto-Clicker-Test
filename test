@@ -1,0 +1,33 @@
+//written by MaxIsBack - maxbd or M0therboard
+#include <windows.h>
+#include <iostream>
+using namespace std;
+int Ch4r1; //A interger to store data in
+
+int main()
+{
+	cout << "1. AutoClicker\n\n"; //output to console
+	cin >> Ch4r1;  //get user input and put it in Ch4r1
+	
+	if (Ch4r1 == 1) //if variable Ch4r1 = 1
+	{
+		cout << "AutoClicker Status, On!\n"; //output to console
+		cout << "Press Delete Key To Stop Process!\n"; //output to console
+		
+		while(true) //infinite loop
+		{
+			Sleep(10); //pause for 0.010 of a second
+			mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0 ,0);  //press key down
+			mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0 ,0);  //lift key up
+			Sleep(200); //pause for 0.200 of a second
+
+			if(GetAsyncKeyState(VK_DELETE)) //if delete key is pressed
+			{
+				exit(0); //exit programs
+			}
+		}
+	}
+	return 0;
+}
+
+-- shoutout to my friend maxbd
